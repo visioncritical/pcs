@@ -2,7 +2,7 @@ FFI_VERSION="1.9.25"
 FFI_C_DIR=vendor/bundle/ruby/gems/ffi-${FFI_VERSION}/ext/ffi_c
 
 build_gems: get_gems
-	bundle install --local --deployment
+	bundle install --local --deployment --path vendor/bundle
 	#ffi makes symlink with absolute path. Let's change it to relative path.
 	for fname in `ls ${FFI_C_DIR}/libffi-*/include/ffitarget.h`; do \
 		if [[ -L "$$fname" ]]; then \
